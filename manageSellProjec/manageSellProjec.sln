@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "manageSellProjec", "manageSellProjec\manageSellProjec.csproj", "{3D428F25-D101-4A41-BCFC-55641D9D1998}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO", "DAO\DAO.csproj", "{1E2171B3-C760-474D-8563-E8DB4493B25F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VIEW", "WindowsFormsApp1\VIEW.csproj", "{27613D75-AAB6-467A-B674-C1B963249410}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3D428F25-D101-4A41-BCFC-55641D9D1998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3D428F25-D101-4A41-BCFC-55641D9D1998}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3D428F25-D101-4A41-BCFC-55641D9D1998}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3D428F25-D101-4A41-BCFC-55641D9D1998}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E2171B3-C760-474D-8563-E8DB4493B25F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E2171B3-C760-474D-8563-E8DB4493B25F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E2171B3-C760-474D-8563-E8DB4493B25F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E2171B3-C760-474D-8563-E8DB4493B25F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27613D75-AAB6-467A-B674-C1B963249410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27613D75-AAB6-467A-B674-C1B963249410}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27613D75-AAB6-467A-B674-C1B963249410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27613D75-AAB6-467A-B674-C1B963249410}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
