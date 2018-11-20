@@ -1,0 +1,11 @@
+C:\Users\chung\OneDrive\GitHub\project_HK_5\manageSellProjec\DAO\bin\Debug\DAO.exe.config
+C:\Users\chung\OneDrive\GitHub\project_HK_5\manageSellProjec\DAO\bin\Debug\DAO.exe
+C:\Users\chung\OneDrive\GitHub\project_HK_5\manageSellProjec\DAO\bin\Debug\DAO.pdb
+C:\Users\chung\OneDrive\GitHub\project_HK_5\manageSellProjec\DAO\bin\Debug\MySql.Data.dll
+C:\Users\chung\OneDrive\GitHub\project_HK_5\manageSellProjec\DAO\bin\Debug\Google.Protobuf.dll
+C:\Users\chung\OneDrive\GitHub\project_HK_5\manageSellProjec\DAO\bin\Debug\MySql.Data.xml
+C:\Users\chung\OneDrive\GitHub\project_HK_5\manageSellProjec\DAO\obj\Debug\DAO.csprojAssemblyReference.cache
+C:\Users\chung\OneDrive\GitHub\project_HK_5\manageSellProjec\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+C:\Users\chung\OneDrive\GitHub\project_HK_5\manageSellProjec\DAO\obj\Debug\DAO.csproj.CopyComplete
+C:\Users\chung\OneDrive\GitHub\project_HK_5\manageSellProjec\DAO\obj\Debug\DAO.exe
+C:\Users\chung\OneDrive\GitHub\project_HK_5\manageSellProjec\DAO\obj\Debug\DAO.pdb

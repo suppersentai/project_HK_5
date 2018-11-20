@@ -1,0 +1,9 @@
+C:\Users\chung\OneDrive\GitHub\project_HK_5\manageSell\manageSell\bin\Debug\manageSell.exe.config
+C:\Users\chung\OneDrive\GitHub\project_HK_5\manageSell\manageSell\bin\Debug\manageSell.exe
+C:\Users\chung\OneDrive\GitHub\project_HK_5\manageSell\manageSell\bin\Debug\manageSell.pdb
+C:\Users\chung\OneDrive\GitHub\project_HK_5\manageSell\manageSell\obj\Debug\VIEW.csprojAssemblyReference.cache
+C:\Users\chung\OneDrive\GitHub\project_HK_5\manageSell\manageSell\obj\Debug\manageSell.Properties.Resources.resources
+C:\Users\chung\OneDrive\GitHub\project_HK_5\manageSell\manageSell\obj\Debug\VIEW.csproj.GenerateResource.cache
+C:\Users\chung\OneDrive\GitHub\project_HK_5\manageSell\manageSell\obj\Debug\VIEW.csproj.CoreCompileInputs.cache
+C:\Users\chung\OneDrive\GitHub\project_HK_5\manageSell\manageSell\obj\Debug\manageSell.exe
+C:\Users\chung\OneDrive\GitHub\project_HK_5\manageSell\manageSell\obj\Debug\manageSell.pdb

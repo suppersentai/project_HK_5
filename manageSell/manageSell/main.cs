@@ -15,7 +15,9 @@ namespace manageSell
         sellForm sForm;
         manageForm mForm;
         warehouseForm wForm;
-
+        // liệt kê hàng hóa ra bảng 
+        // tìm kiếm theo loại
+        // tìm kiếm theo text. liệt kê đk số lượng tồn kho ,, 
         private void button1_Click(object sender, EventArgs e)
         {
             sForm = new sellForm();
@@ -32,6 +34,14 @@ namespace manageSell
         public main()
         {
             InitializeComponent();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            // them xoa nhan vien ... quan li user 
+            // quan li loi nhuan ,, doanh so thang,
+            // nha cung cap hang. 
+            // nhap hang 
         }
     }
 }
