@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ManageSell.Properties
+namespace VIEW.Properties
 {
 
 
