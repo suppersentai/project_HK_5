@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{506B5129-5209-419F-9D77-D599701C88B7}</ProjectGuid>
+    <ProjectGuid>{8B467E32-D778-42F5-BFB2-FD19235CC034}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>VIEW</RootNamespace>
-    <AssemblyName>VIEW</AssemblyName>
+    <RootNamespace>Controller</RootNamespace>
+    <AssemblyName>Controller</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,10 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=8.0.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\mysql-connector-net-8.0.13-noinstall\v4.5.2\MySql.Data.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,26 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="formMain.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formMain.Designer.cs">
-      <DependentUpon>formMain.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="LOGIN.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LOGIN.Designer.cs">
-      <DependentUpon>LOGIN.cs</DependentUpon>
-    </Compile>
+    <Compile Include="loginProcess.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="formMain.resx">
-      <DependentUpon>formMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LOGIN.resx">
-      <DependentUpon>LOGIN.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -78,7 +63,6 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -92,37 +76,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\download.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imag3es.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\images %281%29.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\images %282%29.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\images.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DAO\DAO.csproj">
-      <Project>{bf94f470-a7d2-4ddb-b183-100309459ae9}</Project>
-      <Name>DAO</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MODEL\MODEL.csproj">
-      <Project>{a94e25b5-a41f-4287-8e8f-d4a82bcf8c68}</Project>
-      <Name>MODEL</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\images %283%29.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

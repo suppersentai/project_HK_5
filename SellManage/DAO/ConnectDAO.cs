@@ -8,9 +8,9 @@ using MySql.Data.MySqlClient;
 
 namespace DAO
 {
-    public class ConnectDAO
+    public   class ConnectDAO
     {
-        public   MySqlConnection getConnect()
+        public static  MySqlConnection getConnect()
         {
             String stringConnect = "Data Source = localhost;Database = managesell; port = 3306;User Id=root;password=";
             MySqlConnection conn = new MySqlConnection(stringConnect);
@@ -18,8 +18,6 @@ namespace DAO
         }
         public static void test()
         {
-
-            
 
          
                 MessageBox.Show("ok thah con", "thong bao");

@@ -25,16 +25,34 @@ namespace VIEW
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ConnectDAO c = new ConnectDAO();
-            
-            if (c.getConnect() != null)
-            {
-                MessageBox.Show("ok thah con", "thong bao");
+       
+        }
+
+        private void formMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult di = MessageBox.Show("Bạn Chắc Chắc Muốn thoát Không", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (di == DialogResult.Cancel){
+                 e.Cancel = true;
             }
             else
             {
-                MessageBox.Show("ok tach", "thong bao");
+                 Environment.Exit(1);
+               // Application.Exit();
             }
+       
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+            new LOGIN().Visible = true; this.Visible = false;
+        }
+
+        private void formMain_Load(object sender, EventArgs e)
+        {
+            showInforDAO proDao = new showInforDAO();
+            proDao.fillCombobox(sell_cbType, sell_cbSize, sell_cbColor, sell_cbPrice);
+            proDao.showDataGrid(sell_dataGrid);
         }
     }
 }

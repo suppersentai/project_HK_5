@@ -8,9 +8,22 @@ id > 100 = id product;
 id>500 = id bill/
 drop database managesell;
 */
-
+drop database managesell;
 create database manageSell;
 use manageSell;
+ /* table user…*/
+ 
+ create table tbl_user(
+ userName varchar(30) unique,
+ pass varchar(30),
+ checkAdmin int 
+ );
+ insert into tbl_user 
+ values('chungtoan','gaotoan',2);
+ 
+ 
+ /*-------------------------------------------------------------*/
+
  /* table staff…*/
 create table tbl_staff(
 idStaff char(6) not null,
