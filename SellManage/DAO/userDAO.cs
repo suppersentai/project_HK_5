@@ -9,11 +9,11 @@ namespace DAO
 {
     public  class userDAO
     {
-        public static bool checkInvalidDatabase(String name, String pass)
+        public static bool checkExistAccount(String name, String pass)
         {
 
             MySqlConnection conn = ConnectDAO.getConnect();
-            conn.Open();
+        
             
             String sql = "select * from tbl_user where userName='"+name+"' and pass='"+pass+"'";
             MySqlCommand com = new MySqlCommand(sql, conn);

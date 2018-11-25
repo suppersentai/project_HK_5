@@ -112,9 +112,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAO\DAO.csproj">
-      <Project>{bf94f470-a7d2-4ddb-b183-100309459ae9}</Project>
-      <Name>DAO</Name>
+    <ProjectReference Include="..\Controller\Controller.csproj">
+      <Project>{b735de4a-857a-4419-a34c-38452f4fa7bc}</Project>
+      <Name>Controller</Name>
     </ProjectReference>
     <ProjectReference Include="..\MODEL\MODEL.csproj">
       <Project>{a94e25b5-a41f-4287-8e8f-d4a82bcf8c68}</Project>

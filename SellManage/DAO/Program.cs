@@ -17,7 +17,7 @@ namespace DAO
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             ConnectDAO c = new ConnectDAO();
-            DAO.ConnectDAO.test();
+          
            
         }
     }

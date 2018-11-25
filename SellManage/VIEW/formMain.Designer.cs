@@ -53,9 +53,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -106,54 +106,65 @@
             // sell_cbColor
             // 
             this.sell_cbColor.BackColor = System.Drawing.Color.Snow;
+            this.sell_cbColor.CausesValidation = false;
             this.sell_cbColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sell_cbColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sell_cbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.sell_cbColor.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sell_cbColor.ForeColor = System.Drawing.Color.DimGray;
             this.sell_cbColor.FormattingEnabled = true;
             this.sell_cbColor.Location = new System.Drawing.Point(344, 13);
             this.sell_cbColor.Name = "sell_cbColor";
-            this.sell_cbColor.Size = new System.Drawing.Size(147, 26);
+            this.sell_cbColor.Size = new System.Drawing.Size(147, 22);
             this.sell_cbColor.TabIndex = 0;
-            this.sell_cbColor.Text = "Màu Sắc";
             // 
             // sell_cbPrice
             // 
             this.sell_cbPrice.BackColor = System.Drawing.Color.Snow;
+            this.sell_cbPrice.CausesValidation = false;
             this.sell_cbPrice.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sell_cbPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sell_cbPrice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.sell_cbPrice.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sell_cbPrice.ForeColor = System.Drawing.Color.Black;
+            this.sell_cbPrice.FormatString = "N3";
             this.sell_cbPrice.FormattingEnabled = true;
+            this.sell_cbPrice.Items.AddRange(new object[] {
+            "100k - 200k",
+            "200k - 500k",
+            "500k - 1tr",
+            "Dưới 100 000",
+            "Trên 1 000 000"});
             this.sell_cbPrice.Location = new System.Drawing.Point(497, 13);
             this.sell_cbPrice.Name = "sell_cbPrice";
-            this.sell_cbPrice.Size = new System.Drawing.Size(147, 26);
+            this.sell_cbPrice.Size = new System.Drawing.Size(147, 22);
             this.sell_cbPrice.TabIndex = 0;
-            this.sell_cbPrice.Text = "Giá";
             // 
             // sell_cbType
             // 
             this.sell_cbType.BackColor = System.Drawing.Color.Snow;
+            this.sell_cbType.CausesValidation = false;
             this.sell_cbType.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sell_cbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sell_cbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.sell_cbType.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sell_cbType.ForeColor = System.Drawing.Color.Black;
             this.sell_cbType.FormattingEnabled = true;
             this.sell_cbType.Location = new System.Drawing.Point(9, 13);
             this.sell_cbType.Name = "sell_cbType";
-            this.sell_cbType.Size = new System.Drawing.Size(147, 26);
+            this.sell_cbType.Size = new System.Drawing.Size(147, 22);
             this.sell_cbType.TabIndex = 0;
-            this.sell_cbType.Text = "Loại";
             // 
             // sell_cbSize
             // 
             this.sell_cbSize.BackColor = System.Drawing.Color.Snow;
+            this.sell_cbSize.CausesValidation = false;
             this.sell_cbSize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sell_cbSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sell_cbSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.sell_cbSize.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sell_cbSize.ForeColor = System.Drawing.Color.Black;
-            this.sell_cbSize.FormattingEnabled = true;
+            this.sell_cbSize.FormatString = "N0";
             this.sell_cbSize.Location = new System.Drawing.Point(180, 13);
             this.sell_cbSize.Name = "sell_cbSize";
-            this.sell_cbSize.Size = new System.Drawing.Size(147, 26);
+            this.sell_cbSize.Size = new System.Drawing.Size(147, 22);
             this.sell_cbSize.TabIndex = 0;
-            this.sell_cbSize.Text = "Size";
             // 
             // panel5
             // 
@@ -179,6 +190,8 @@
             // 
             // sell_dataGrid
             // 
+            this.sell_dataGrid.AllowUserToAddRows = false;
+            this.sell_dataGrid.AllowUserToDeleteRows = false;
             this.sell_dataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -354,6 +367,13 @@
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
+            // đăngXuấtToolStripMenuItem
+            // 
+            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.đăngXuấtToolStripMenuItem.Text = "Đăng Xuất";
+            this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
+            // 
             // opptionToolStripMenuItem
             // 
             this.opptionToolStripMenuItem.Name = "opptionToolStripMenuItem";
@@ -365,13 +385,6 @@
             this.toolToolStripMenuItem.Name = "toolToolStripMenuItem";
             this.toolToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
             this.toolToolStripMenuItem.Text = "tool";
-            // 
-            // đăngXuấtToolStripMenuItem
-            // 
-            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.đăngXuấtToolStripMenuItem.Text = "Đăng Xuất";
-            this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
             // formMain
             // 
@@ -423,12 +436,12 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.DataGridView sell_dataGrid;
-        private System.Windows.Forms.ComboBox sell_cbPrice;
-        private System.Windows.Forms.ComboBox sell_cbColor;
-        private System.Windows.Forms.ComboBox sell_cbSize;
-        private System.Windows.Forms.ComboBox sell_cbType;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
+        private System.Windows.Forms.ComboBox sell_cbColor;
+        private System.Windows.Forms.ComboBox sell_cbPrice;
+        private System.Windows.Forms.ComboBox sell_cbType;
+        private System.Windows.Forms.ComboBox sell_cbSize;
     }
 }
 

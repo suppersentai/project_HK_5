@@ -23,10 +23,11 @@ namespace VIEW
             loginProcess log = new loginProcess();
             if (log.checkInvalid(log_txtUser.Text, log_txtPas.Text))
             {
-                if (DAO.userDAO.checkInvalidDatabase(log_txtUser.Text, log_txtPas.Text))
-                { 
+                if (log.checkExistAccount(log_txtUser.Text, log_txtPas.Text))
+                {
                        new formMain().Visible=true;
                      this.Visible = false;
+
                 }
                 else
                 {

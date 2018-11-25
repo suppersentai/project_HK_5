@@ -6,9 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Controller;
 using System.Windows.Forms;
 
-using Controller;
 
 namespace VIEW
 {
@@ -17,7 +17,6 @@ namespace VIEW
         public formMain()
         {
             InitializeComponent();
-           
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -51,31 +50,11 @@ namespace VIEW
         }
 
         private void formMain_Load(object sender, EventArgs e)
-        {       
-            sell_dataGrid.DataSource = Controller.showInforProcesss.getListProductProsess();
+        {
 
-            //đặt header
-            sell_dataGrid.Columns["id"].HeaderText = "Mã";     
-            sell_dataGrid.Columns["name"].HeaderText = "Tên sản phẩm";
-            sell_dataGrid.Columns["type"].HeaderText = "Loại";
-            sell_dataGrid.Columns["size"].HeaderText = "Size";
-            sell_dataGrid.Columns["color"].HeaderText = "Màu sắc";
-            sell_dataGrid.Columns["outPrice"].HeaderText = "Giá Bán";
-            sell_dataGrid.Columns["note"].HeaderText = "note";
-            //đặt kích thước width 
-            sell_dataGrid.Columns["id"].Width = 60;
-            sell_dataGrid.Columns["size"].Width = 60;
-
-     
             Controller.showInforProcesss.showTypeOnCombox(sell_cbType);
-            
             Controller.showInforProcesss.showSizeOnCombox(sell_cbSize);
- 
-            Controller.showInforProcesss.showColorOnCombox(sell_cbColor);
-
-
-
-
+            //sell_dataGrid.DataSource = Controller.showInforProcesss.getListProductProsess();
         }
     }
 }

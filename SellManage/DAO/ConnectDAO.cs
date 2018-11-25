@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-
+using System.Data;
 namespace DAO
 {
     public   class ConnectDAO
@@ -14,14 +14,31 @@ namespace DAO
         {
             String stringConnect = "Data Source = localhost;Database = managesell; port = 3306;User Id=root;password=";
             MySqlConnection conn = new MySqlConnection(stringConnect);
+            conn.Open();
             return conn;
         }
-        public static void test()
+        public static DataTable getDataTable(String stringQuery,MySqlConnection conn)
         {
+            MySqlDataAdapter adapter = new MySqlDataAdapter(stringQuery, conn);
+            DataTable dataTable = new DataTable() ;
+            adapter.Fill(dataTable);
 
-         
-                MessageBox.Show("ok thah con", "thong bao");
-          
+            return dataTable;
+
         }
+        public static bool queryNonQuery(String stringQuery, MySqlConnection conn)
+        {
+            try
+            {
+                MySqlCommand command = new MySqlCommand(stringQuery, conn);
+                command.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                 return false;
+            }
+        }
+      
     }
 }

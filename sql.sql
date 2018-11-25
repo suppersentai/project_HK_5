@@ -8,6 +8,7 @@ id > 100 = id product;
 id>500 = id bill/
 drop database managesell;
 */
+
 drop database managesell;
 create database manageSell;
 use manageSell;
@@ -78,24 +79,22 @@ idProduct int not null auto_increment primary key ,
 nameProduct nvarchar (44) not null,
 idType char (6) not null  ,/* loại sp : ví dụ như : áo ,quần , mũ , nón*/
 sizeProduct char(10) not null,
-leftOverProduct int not null,/*số lượng hàng tồn trong kho*/
 colorProduct nvarchar (10)  not null,
-priceInProduct int  not null,/* giá nhập vào*/
-priceOutProduct int  not null,/*giá bán ra*/
-idsupply char(6),/* Nhà cung cấp*/ 
-note nvarchar (1000) ,/*Ghi chú nếu có*/
-foreign key (idsupply) references tbl_supply(idSupply)
+priceOutProduct  int not null,
+note nvarchar (1000) /*Ghi chú nếu có*/
 );
 alter table tbl_product auto_increment = 1000;
 alter table tbl_product 
 add foreign key (idType) references tbl_typeProduct(idType);
+use managesell;
 
+          
 
-insert into tbl_product (nameProduct,idType,sizeProduct,leftOverProduct,colorProduct,priceInProduct,priceOutProduct,idsupply,note)
-values ('Áo bà ba','TP001','32',100,'red',10000,20000,'SP001','chua co note');
+insert into tbl_product (nameProduct,idType,sizeProduct,colorProduct,priceOutProduct,note)
+values ('Áo bà ba','TP001','32','red',20000,'chua co note');
 
-insert into tbl_product (nameProduct,idType,sizeProduct,leftOverProduct,colorProduct,priceInProduct,priceOutProduct,idsupply,note)
-values ('Quần xì ','TP002','39',100,'green',20000,30000,'SP002','chua co note');
+insert into tbl_product (nameProduct,idType,sizeProduct,colorProduct,priceOutProduct,note)
+values ('Quần xì ','TP002','39','green',30000,'chua co note');
 
 /*----select * from tbl_product;---------------------------------------------------------*/
 
@@ -167,14 +166,19 @@ create table tbl_manageProduct(
 idProduct int ,
 totalSell int,/* quản lí số lượng sản phẩm đã bán đk bao nhiêu*/
 totalPrice int ,/*Tổng doanh thu cả vốn lẫn lãi*/
-profit int /*Lợi nhuận*/
+profit int, /*Lợi nhuận*/
+leftOverProduct int not null,/*số lượng hàng tồn trong kho*/
+priceInProduct int  not null,/* giá nhập vào*/
 
+idsupply char(6),/* Nhà cung cấp*/ 
+foreign key (idsupply) references tbl_supply(idSupply)
 );
 
 alter table tbl_manageProduct
  add constraint fk_manageProduct foreign key (idProduct) references tbl_product(idProduct);
  insert into tbl_manageProduct 
- values(1000,3,60000,30000);
+ values(1000,3,45000,15000,100,15000,'SP001');
  insert into tbl_manageProduct 
- values(1001,2,60000,30000);
+ values(1001,2,60000,30000,100,20000,'SP002');
+
 /*-------------------------------------------------------------*/
