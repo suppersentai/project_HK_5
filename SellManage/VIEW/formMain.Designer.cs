@@ -50,7 +50,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_sell = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -113,9 +113,11 @@
             this.sell_cbColor.ForeColor = System.Drawing.Color.DimGray;
             this.sell_cbColor.FormattingEnabled = true;
             this.sell_cbColor.Location = new System.Drawing.Point(344, 13);
+            this.sell_cbColor.MaxDropDownItems = 20;
             this.sell_cbColor.Name = "sell_cbColor";
             this.sell_cbColor.Size = new System.Drawing.Size(147, 22);
             this.sell_cbColor.TabIndex = 0;
+            this.sell_cbColor.SelectedIndexChanged += new System.EventHandler(this.sell_cbColor_SelectedIndexChanged);
             // 
             // sell_cbPrice
             // 
@@ -148,9 +150,11 @@
             this.sell_cbType.ForeColor = System.Drawing.Color.Black;
             this.sell_cbType.FormattingEnabled = true;
             this.sell_cbType.Location = new System.Drawing.Point(9, 13);
+            this.sell_cbType.MaxDropDownItems = 20;
             this.sell_cbType.Name = "sell_cbType";
             this.sell_cbType.Size = new System.Drawing.Size(147, 22);
             this.sell_cbType.TabIndex = 0;
+            this.sell_cbType.SelectionChangeCommitted += new System.EventHandler(this.sell_cbType_SelectionChangeCommitted);
             // 
             // sell_cbSize
             // 
@@ -160,11 +164,13 @@
             this.sell_cbSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.sell_cbSize.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sell_cbSize.ForeColor = System.Drawing.Color.Black;
-            this.sell_cbSize.FormatString = "N0";
+            this.sell_cbSize.FormattingEnabled = true;
             this.sell_cbSize.Location = new System.Drawing.Point(180, 13);
+            this.sell_cbSize.MaxDropDownItems = 20;
             this.sell_cbSize.Name = "sell_cbSize";
             this.sell_cbSize.Size = new System.Drawing.Size(147, 22);
             this.sell_cbSize.TabIndex = 0;
+            this.sell_cbSize.SelectedIndexChanged += new System.EventHandler(this.sell_cbSize_SelectedIndexChanged);
             // 
             // panel5
             // 
@@ -192,13 +198,22 @@
             // 
             this.sell_dataGrid.AllowUserToAddRows = false;
             this.sell_dataGrid.AllowUserToDeleteRows = false;
+            this.sell_dataGrid.AllowUserToResizeColumns = false;
+            this.sell_dataGrid.AllowUserToResizeRows = false;
             this.sell_dataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.sell_dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.sell_dataGrid.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.sell_dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.sell_dataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sell_dataGrid.EnableHeadersVisualStyles = false;
             this.sell_dataGrid.Location = new System.Drawing.Point(3, 0);
             this.sell_dataGrid.Name = "sell_dataGrid";
+            this.sell_dataGrid.ReadOnly = true;
+            this.sell_dataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.sell_dataGrid.RowHeadersVisible = false;
+            this.sell_dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.sell_dataGrid.Size = new System.Drawing.Size(648, 429);
             this.sell_dataGrid.TabIndex = 1;
             // 
@@ -219,7 +234,7 @@
             this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btn_sell);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(984, 383);
@@ -336,16 +351,16 @@
             this.button2.TabIndex = 0;
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btn_sell
             // 
-            this.button1.BackgroundImage = global::VIEW.Properties.Resources.images;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(46, 27);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 65);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_sell.BackgroundImage = global::VIEW.Properties.Resources.images;
+            this.btn_sell.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_sell.Location = new System.Drawing.Point(46, 27);
+            this.btn_sell.Name = "btn_sell";
+            this.btn_sell.Size = new System.Drawing.Size(106, 65);
+            this.btn_sell.TabIndex = 0;
+            this.btn_sell.UseVisualStyleBackColor = true;
+            this.btn_sell.Click += new System.EventHandler(this.button1_Click);
             // 
             // menuStrip1
             // 
@@ -418,7 +433,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem opptionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolToolStripMenuItem;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -431,7 +445,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_sell;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
@@ -442,6 +456,7 @@
         private System.Windows.Forms.ComboBox sell_cbPrice;
         private System.Windows.Forms.ComboBox sell_cbType;
         private System.Windows.Forms.ComboBox sell_cbSize;
+        private System.Windows.Forms.ToolStripMenuItem toolToolStripMenuItem;
     }
 }
 

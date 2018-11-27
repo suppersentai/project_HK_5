@@ -27,9 +27,9 @@ namespace DAO
             else
             {
                 //tao list<type product>
+              
                 for (int i = 0; i < dtableType.Rows.Count; i++)
                 {
-                   
                     typeProduct pro = new typeProduct();
                     pro.Id = dtableType.Rows[i]["idType"].ToString();
                     pro.Name = dtableType.Rows[i]["nameType"].ToString();
@@ -108,9 +108,9 @@ namespace DAO
             return list;
         }
 
-        public static HashSet<int> takeListSize()
+        public static List<product> takeListSize()
         {
-            HashSet<int> list = new HashSet<int>();
+            List<product> list = new List<product>();
             String sql = "select idProduct, sizeProduct  from tbl_product";
             DataTable dtableSize = ConnectDAO.getDataTable(sql, ConnectDAO.getConnect());
 
@@ -121,7 +121,9 @@ namespace DAO
             }
             else
             {
-                //tao list<type product> nhung chi lay id  and color
+                //tao list<type product> nhung chi lay id  and size
+                
+
                 for (int i = 0; i < dtableSize.Rows.Count; i++)
                 {
                     product pro = new product();
@@ -130,32 +132,35 @@ namespace DAO
 
                     pro.Size = Convert.ToInt32(dtableSize.Rows[i]["sizeProduct"]);
 
-                    list.Add(pro.Size);
+                    list.Add(pro);
                   
                 }
               
             }
             return list;
         }
-        public static HashSet<String> takeListColor()
+        public static List<product> takeListColor()
         {
-            HashSet<String> list = new HashSet<String>();
+            List<product> list = new List<product>();
+            String sql = "select colorProduct  from tbl_product";
+            DataTable dtableSize = ConnectDAO.getDataTable(sql, ConnectDAO.getConnect());
 
-            String sql = "select idProduct, colorProduct  from tbl_product";
-            DataTable dtable = ConnectDAO.getDataTable(sql, ConnectDAO.getConnect());
-
-            if (dtable.Rows.Count == 0)
+            if (dtableSize.Rows.Count == 0)
             {
                 return null;
 
             }
             else
             {
-                //tao list<type product> nhung chi lay id  and color
-                for (int i = 0; i < dtable.Rows.Count; i++)
+                //tao list<type product> nhung chi lay id  and size
+
+
+                for (int i = 0; i < dtableSize.Rows.Count; i++)
                 {
-                   String color = dtable.Rows[i]["colorProduct"].ToString();
-                    list.Add(color);
+                    product pro = new product();
+                    pro.Color =dtableSize.Rows[i]["colorProduct"].ToString();
+
+                    list.Add(pro);
                 }
 
             }
@@ -164,52 +169,57 @@ namespace DAO
         public static List<product> getListProduct()
             
         {
-            //using (MySqlConnection conn = ConnectDAO.getConnect()){
-
-            //String sql= "select idProduct as N'Mã Sản phẩm',nameProduct,idType,sizeProduct,colorProduct,priceOutProduct,note from tbl_product";
-            //MySqlCommand comm = new MySqlCommand(sql, conn);
-            //MySqlDataAdapter adapter = new MySqlDataAdapter(comm);
-            //DataTable tableData = new DataTable();
-            //adapter.Fill(tableData);
-            //dataGridView.DataSource = tableData;
-            //conn.Close();
-            //adapter.Dispose();}
+          
             List<product> list = new List<product>();
-
-            String sql = "select tbl_product.*,nameType from tbl_product,tbl_typeProduct where tbl_product.idType = tbl_typeProduct.idType; ";
-            DataTable dtableProduct = ConnectDAO.getDataTable(sql, ConnectDAO.getConnect());
-     
-            if (dtableProduct.Rows.Count == 0)
+            try
             {
-                return null;
-            }
-            else
+                string sql = "select SANPHAM.* ,LOAISANPHAM.tenLoai,giaban from SANPHAM, LOAISANPHAM ,HoaDonNhapHang where SANPHAM.idLOAISANPHAM = LOAISANPHAM.id and sanpham.id=hoadonnhaphang.IdSanPham; ";
 
-            {
-                try
+                DataTable dtableProduct = ConnectDAO.getDataTable(sql, ConnectDAO.getConnect());
+          
+                if (dtableProduct.Rows.Count == 0)
                 {
-                    for (int i = 0; i < dtableProduct.Rows.Count; i++)
-                    {
-                        product pro = new product();
-                        pro.Id = int.Parse(dtableProduct.Rows[i]["idProduct"].ToString());
-                        pro.Name = dtableProduct.Rows[i]["nameProduct"].ToString();
-                        pro.Type = dtableProduct.Rows[i]["nameType"].ToString();
-                        pro.Size = int.Parse(dtableProduct.Rows[i]["sizeProduct"].ToString());
-                        pro.Color = dtableProduct.Rows[i]["colorProduct"].ToString();
-                        pro.OutPrice = int.Parse(dtableProduct.Rows[i]["priceOutProduct"].ToString());
-                        pro.Note = dtableProduct.Rows[i]["note"].ToString();
+                    return null;
+                }
+                else
+
+                {
+                   
+                  
+
+                        for (int i = 0; i < dtableProduct.Rows.Count; i++)
+                        {
+                           product pro = new product();
+                            pro.Id = int.Parse(dtableProduct.Rows[i]["id"].ToString());
+                            pro.Name = dtableProduct.Rows[i]["ten"].ToString();
+                            pro.Type = dtableProduct.Rows[i]["IdLoaiSanPham"].ToString();
+                            pro.Size = int.Parse(dtableProduct.Rows[i]["size"].ToString());
+                            pro.Color = dtableProduct.Rows[i]["MauSac"].ToString();
+                            pro.OutPrice = double.Parse(dtableProduct.Rows[i]["GiaBan"].ToString());
+                            pro.Note = dtableProduct.Rows[i]["note"].ToString();
+                             pro.Tag = dtableProduct.Rows[i]["TenLoai"].ToString();
+
                         list.Add(pro);
-                      
+                
                     }
-                }
-                catch (Exception e)
-                {
-    MessageBox.Show(e.StackTrace.ToString());
-                }
+                 }
+       
+             
          
             }
+               catch (Exception e)
+                {
+                     MessageBox.Show(e.StackTrace.ToString());
+                }
+          
+
             return list;
         }
-            
+        public static DataTable filterCombox(String type, String size, String color)
+        {
+            DataTable data = null;
+           // String sql = ConnectDAO.getDataTable
+            return data;
+        }
     }
 }

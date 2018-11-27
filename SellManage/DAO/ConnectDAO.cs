@@ -12,9 +12,18 @@ namespace DAO
     {
         public static  MySqlConnection getConnect()
         {
-            String stringConnect = "Data Source = localhost;Database = managesell; port = 3306;User Id=root;password=";
-            MySqlConnection conn = new MySqlConnection(stringConnect);
-            conn.Open();
+            MySqlConnection conn = new MySqlConnection();
+            try
+            {
+                String stringConnect = "Data Source = localhost;Database = quanlibanhang; port = 3306;User Id=root;password=";
+                 conn = new MySqlConnection(stringConnect);
+                conn.Open();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.StackTrace +"\n Error connect in getConnect()");
+            }
+        
             return conn;
         }
         public static DataTable getDataTable(String stringQuery,MySqlConnection conn)
@@ -36,8 +45,9 @@ namespace DAO
             }
             catch (Exception ex)
             {
-                 return false;
+                MessageBox.Show(ex.StackTrace + "\n ChungToan Say connectDAO/queryNonQuery");
             }
+            return false;
         }
       
     }
