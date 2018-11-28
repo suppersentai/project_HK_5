@@ -10,29 +10,35 @@ namespace DAO
 {
     public   class ConnectDAO
     {
-        public static  MySqlConnection getConnect()
-        {
-            MySqlConnection conn = new MySqlConnection();
-            try
-            {
-                String stringConnect = "Data Source = localhost;Database = quanlibanhang; port = 3306;User Id=root;password=";
-                 conn = new MySqlConnection(stringConnect);
-                conn.Open();
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show(ex.StackTrace +"\n Error connect in getConnect()");
-            }
-        
-            return conn;
-        }
-        public static DataTable getDataTable(String stringQuery,MySqlConnection conn)
-        {
-            MySqlDataAdapter adapter = new MySqlDataAdapter(stringQuery, conn);
-            DataTable dataTable = new DataTable() ;
-            adapter.Fill(dataTable);
+    static    String stringConnect = "Data Source = localhost;Database = quanlibanhang; port = 3306;User Id=root;password=";
 
-            return dataTable;
+        //public static  MySqlConnection getConnect()
+        //{
+        //    MySqlConnection conn = new MySqlConnection();
+        //    try
+        //    {
+        //        String stringConnect = "Data Source = localhost;Database = quanlibanhang; port = 3306;User Id=root;password=";
+        //         conn = new MySqlConnection(stringConnect);
+        //        conn.Open();
+        //    }
+        //    catch (MySqlException ex)
+        //    {
+        //        MessageBox.Show(ex.StackTrace +"\n Error connect in getConnect()");
+        //    }
+        
+        //    return conn;
+        //}
+        public static DataTable getDataTable(String stringQuery)
+        {
+            using (MySqlConnection conn = new MySqlConnection(stringConnect))
+            {
+                conn.Open();
+                MySqlDataAdapter adapter = new MySqlDataAdapter(stringQuery, conn);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                conn.Close();
+                return dataTable;
+            }
 
         }
         public static bool queryNonQuery(String stringQuery, MySqlConnection conn)

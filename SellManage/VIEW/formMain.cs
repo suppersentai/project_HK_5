@@ -16,10 +16,9 @@ namespace VIEW
 {
     public partial class formMain : Form
     {
-        private  int showColo = 0;// dung show color khi lan dau load form
-        List<product> listCurent;//List product ddang show tren data grid
+      DataTable tableCurent;//List product ddang show tren data grid
 
-        List<product> listProduct;//List product chua tat ca product from database
+        DataTable tableProductFull ;//List product chua tat ca product from database
         public formMain()
         {
             InitializeComponent();
@@ -59,81 +58,48 @@ namespace VIEW
 
         private void formMain_Load(object sender, EventArgs e)
         {
-           
-            listProduct = Controller.showInforProcesss.getListProductProsess();
+
+            tableProductFull = Controller.showInforProcesss.getListProductProsess();
         
-            MessageBox.Show(listProduct.Count.ToString());
+         
      
-            sell_dataGrid.DataSource = listProduct;
-           //đặt header
-            sell_dataGrid.Columns["id"].HeaderText = "Mã";     
-            sell_dataGrid.Columns["name"].HeaderText = "Tên sản phẩm";
-            sell_dataGrid.Columns["tag"].HeaderText = "Loại";
+            sell_dataGrid.DataSource = tableProductFull;
+            //đặt header
+            //đặt header       
+      
+            sell_dataGrid.Columns["idSP"].HeaderText = "Mã";     
+            sell_dataGrid.Columns["TenSP"].HeaderText = "Tên sản phẩm";
+            sell_dataGrid.Columns["tenloai"].HeaderText = "Loại";
             sell_dataGrid.Columns["size"].HeaderText = "Size";
-            sell_dataGrid.Columns["color"].HeaderText = "Màu sắc";
-            sell_dataGrid.Columns["outPrice"].HeaderText = "Giá Bán";
+            sell_dataGrid.Columns["mausac"].HeaderText = "Màu sắc";
+            sell_dataGrid.Columns["giaban"].HeaderText = "Giá Bán";
+            sell_dataGrid.Columns["doituongsudung"].HeaderText = "Phái";
             sell_dataGrid.Columns["note"].HeaderText = "note";
-            sell_dataGrid.Columns["type"].HeaderText = "Loại";
+            //sell_dataGrid.Columns["type"].HeaderText = "Loại";
 
            // //đặt kích thước width 
-           sell_dataGrid.Columns["id"].Width = 60;
-          sell_dataGrid.Columns["size"].Width = 60;
+            sell_dataGrid.Columns["idSP"].Width = 60;
+            sell_dataGrid.Columns["size"].Width = 60;
+            sell_dataGrid.Columns["doituongsudung"].Width = 60;
 
-           // // HIDE AN column idType in datagrid
-            sell_dataGrid.Columns["type"].Visible = false;
-             // // show infor on 4 combobox
-          // Controller.showInforProcesss.showTypeOnCombox(sell_cbType);
-           // Controller.showInforProcesss.showSizeOnCombox(sell_cbSize);
-           // Controller.showInforProcesss.showColorOnCombox(sell_cbColor);
-           //// sell_cbPrice.SelectedIndex = 0;
-
-            //set selectted 
-            
-
+            // // HIDE AN column idType in datagrid
+            //   sell_dataGrid.Columns["type"].Visible = false;
+            // // show infor on 4 combobox
+            MessageBox.Show("Do dai table la");
+    
+                Controller.showInforProcesss.showTypeOnCombox(sell_cbType);
+            Controller.showInforProcesss.showSizeOnCombox(sell_cbSize);
+            Controller.showInforProcesss.showColorOnCombox(sell_cbColor);
+            //// sell_cbPrice.SelectedIndex = 0;
+            //
+          
+            tableCurent = (DataTable)sell_dataGrid.DataSource;
+            MessageBox.Show("Do dai table la : " + tableCurent.Rows.Count.ToString());
         }
-
-        private void sell_cbType_SelectionChangeCommitted(object sender, EventArgs e)
-        {//even khi thay doi gia gia trong combobox type
-
-            //ComboBox com = sender as ComboBox;
-         
-            //if ((sell_cbSize.SelectedIndex ==0 && sell_cbColor.SelectedIndex == 0 && sell_cbPrice.SelectedIndex == -1) )
-            //{
-            ////     MessageBox.Show(com.SelectedValue.ToString());
-            //    listCurent = new List<product>();
-            //   // cach 1 dung vong for
-            //  foreach (var item in listProduct)
-            //    {
-            //        if (item.Type.ToString() == com.SelectedValue.ToString())
-            //            {
-            //                listCurent.Add(item);
-            //                 MessageBox.Show(item.Type.ToString() + "  ----  " + com.SelectedValue.ToString());
-            //            }
-            //        }
-                
-            //    //cach 2 dung dieu kien
-            //    //      listCurent = listProduct.Where(id => id.Type.ToString() == com.SelectedValue.ToString()).ToList();
-            //    sell_dataGrid.DataSource = listCurent;
-            //}
-            //else
-            //{
-            //    //Controller.showInforProcesss
-            //  //  sell_dataGrid.DataSource = listCurent;
-            //}
-           
-            
-        }
-
-        private void sell_cbSize_SelectedIndexChanged(object sender, EventArgs e)
-        {
-          //  ComboBox com = sender as ComboBox;
-
-          //  updateDGridWhenChangeValueComboxSize();
-        }
-
+ 
         public void updateDGridWhenChangeValueComboxSize( )
         {
-            listCurent = new List<product>();
+            tableCurent = new DataTable();
        
 
             //if ((sell_cbType.SelectedIndex ==0 && sell_cbColor.SelectedIndex == 0 && sell_cbPrice.SelectedIndex == -1)){
@@ -157,14 +123,6 @@ namespace VIEW
     
         }
 
-        private void sell_cbColor_SelectedIndexChanged(object sender, EventArgs e)
-        {
-         
-            //ComboBox com = sender as ComboBox;
-            //sell_dataGrid.DataSource = listProduct;
-            //updateDGridWhenChangeValueComboxColor();
-           
-        }
         public void updateDGridWhenChangeValueComboxColor()
         {
             //    showColo++;
@@ -187,6 +145,61 @@ namespace VIEW
             //       sell_dataGrid.DataSource = listCurent;
             //    }
             //
+        }
+
+        private void sell_cbType_SelectedValueChanged(object sender, EventArgs e)
+        {
+           // ShowIInfo();
+        }
+
+        private void sell_cbSize_SelectedValueChanged_1(object sender, EventArgs e)
+        {
+          //  ShowIInfo();
+        }
+
+        private void sell_cbColor_SelectedValueChanged(object sender, EventArgs e)
+        {
+          //  ShowIInfo();
+        }
+
+        private void sell_cbPrice_SelectedValueChanged(object sender, EventArgs e)
+        {
+            //ShowIInfo();
+        }
+        public void ShowIInfo ()
+        {//set datagrid = tất cả san pham
+            if (checkAllSelecedIsZero())
+            {
+                sell_dataGrid.DataSource = tableProductFull;
+                MessageBox.Show("xong");
+            }
+            else
+            {
+                filterListAndShow();
+            }
+        }
+        public bool checkAllSelecedIsZero()
+        {// kiểm tra xem tất cả các value  index có phải  = 0
+            if (sell_cbType.SelectedIndex == 0 && sell_cbSize.SelectedIndex == 0 && sell_cbColor.SelectedIndex == 0 && sell_cbPrice.SelectedIndex == 0)
+            {
+                return true;
+            }
+            return false;
+        }
+        public void filterListAndShow()
+        {
+            //lọc khi thay đổi giá trị của combox
+                String typeValue= null;
+                String sizeValue = null;
+                String colorValue= null;
+            if (sell_cbColor.Items.Count != 0)
+            {
+                 typeValue = sell_cbSize.SelectedValue.ToString();
+                 sizeValue = sell_cbSize.SelectedValue.ToString();
+                 colorValue = sell_cbColor.SelectedValue.ToString();
+            }
+            DataTable table=  Controller.showInforProcesss.filterComboxValues(typeValue, sizeValue, colorValue);
+            sell_dataGrid.DataSource = table;
         }
     }
 }

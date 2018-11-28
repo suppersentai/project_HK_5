@@ -7,6 +7,8 @@ using System.Windows.Forms;
 using DAO;
 using MODEL;
 using System.Data;
+using System.Collections;
+
 namespace Controller
 {
     public class showInforProcesss
@@ -14,69 +16,45 @@ namespace Controller
         #region Hiển thị thông tin và chưc năng lọc trong  combobox
         public static void showTypeOnCombox( ComboBox cbType)
         {
+            DataTable datable = new DataTable();
             //show combobox type
 
-            List < typeProduct > list = DAO.showInforDAO.takeListType();
-            cbType.DataSource = list;
-            cbType.DisplayMember = "name";
-            cbType.ValueMember = "id";
+            datable = DAO.showInforDAO.takeListType();
+            //DataRow row = datable.NewRow();
+            //row["tenLoai"] = " Tất cả";
+            //row["idLoai"] = 0;
+            //datable.Rows.Add(row);
+            //DataView daView = datable.DefaultView;
+            //daView.Sort="idloai ASC";
+            cbType.DataSource = datable;
+            cbType.DisplayMember = "tenloai";
+            cbType.ValueMember = "tenloai";
         }
 
-        public static void showSizeOnCombox(ComboBox cbsize)
+        public static void showSizeOnCombox(ComboBox combox)
         {
 
+            DataTable datable = new DataTable();
+            //show combobox SIZE
 
-            List<product> list = DAO.showInforDAO.takeListSize();// Hashset de bo du lieu trung  
-            List<product> list2 = new List<product>() ;// = list.ToList();// sau do convert hastset sang List vi dataSource  khong nhan Hashset
-            list2.Add(list[0]);
-            foreach (product item in list)
-            {
-                bool check = false;
-                for (int i = 0; i < list2.Count; i++)
-                {
-                    if (list2[i].Size == item.Size)
-                    {
-                        check = true;
-                        break;
-                    }
-                }
-                if (check == false)
-                {
-                    list2.Add(item);
-                }
-            }
-            cbsize.DataSource = list2;
-            cbsize.DisplayMember = "size";
-            cbsize.ValueMember = "size";
-           // MessageBox.Show("Trđue");
-
-
+           datable = DAO.showInforDAO.takeListSize();                  
+            combox.DataSource = datable;
+            combox.DisplayMember = "size";
+            combox.ValueMember = "size";
         }
-        public static void showColorOnCombox(ComboBox cbsize)
+        public static void showColorOnCombox(ComboBox combox)
         {
-            List<product> list = DAO.showInforDAO.takeListColor();// Hashset de bo du lieu trung  
-            List<product> list2 = new List<product>();// = list.ToList();// sau do convert hastset sang List vi dataSource  khong nhan Hashset
-            list2.Add(list[0]);
+            DataTable datable = new DataTable();
+            //show combobox SIZE
 
-            foreach (product item in list)
-            {
-                bool check = false;
-                for (int i = 0; i < list2.Count; i++)
-                {
-                    if (list2[i].Color == item.Color)
-                    {
-                        check = true;
-                        break;
-                    }
-                }
-                if (check == false)
-                {
-                    list2.Add(item);
-                }
-            }
-            cbsize.DataSource = list2;
-            cbsize.DisplayMember = "color";
-            cbsize.ValueMember = "color";
+            DataRow row= datable.NewRow();
+       
+
+            datable = DAO.showInforDAO.takeListColor();
+
+            combox.DataSource = datable;
+            combox.DisplayMember = "mausac";
+            combox.ValueMember = "Mausac";
 
         }
 
@@ -84,20 +62,29 @@ namespace Controller
         {
             //show combobox price
         }
-        public static void filterComboxValues(ComboBox type,ComboBox size, ComboBox color)
+        public static DataTable filterComboxValues(String type, String size, String color)
         {
+            DataTable dataView = new DataTable() ;
             //lọc giá giá trị khi thay đổi selectedIndex
-            String typeValue = type.SelectedValue.ToString();
-            String sizeValue = size.SelectedValue.ToString();
-            String colorValue = color.SelectedValue.ToString();
-            DataTable dataView = DAO.showInforDAO.filterCombox(typeValue,sizeValue,colorValue);
+            dataView = DAO.showInforDAO.filterCombox(type, size, color);
 
+            return dataView;
         }
-        public static List<product> getListProductProsess ()
+        public static DataTable getListProductProsess ()
         {
             return DAO.showInforDAO.getListProduct();
 
         }
         #endregion
     }
+    //public class sortListById : IComparer
+    //{  so sanh doi tượng bằng giá trị propeties
+    //    public int Compare(object a, object b)
+    //    {
+    //        typeProduct typeProduct = a as typeProduct;
+    //        typeProduct typeProduct2 = b as typeProduct;
+    //        return typeProduct.Id.CompareTo(typeProduct2.Id);
+    //    }
+      
+    //}
 }

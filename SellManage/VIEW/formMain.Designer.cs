@@ -105,10 +105,11 @@
             // 
             // sell_cbColor
             // 
+            this.sell_cbColor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.sell_cbColor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.sell_cbColor.BackColor = System.Drawing.Color.Snow;
             this.sell_cbColor.CausesValidation = false;
             this.sell_cbColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sell_cbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.sell_cbColor.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sell_cbColor.ForeColor = System.Drawing.Color.DimGray;
             this.sell_cbColor.FormattingEnabled = true;
@@ -117,7 +118,7 @@
             this.sell_cbColor.Name = "sell_cbColor";
             this.sell_cbColor.Size = new System.Drawing.Size(147, 22);
             this.sell_cbColor.TabIndex = 0;
-            this.sell_cbColor.SelectedIndexChanged += new System.EventHandler(this.sell_cbColor_SelectedIndexChanged);
+            this.sell_cbColor.SelectedValueChanged += new System.EventHandler(this.sell_cbColor_SelectedValueChanged);
             // 
             // sell_cbPrice
             // 
@@ -139,13 +140,13 @@
             this.sell_cbPrice.Name = "sell_cbPrice";
             this.sell_cbPrice.Size = new System.Drawing.Size(147, 22);
             this.sell_cbPrice.TabIndex = 0;
+            this.sell_cbPrice.SelectedValueChanged += new System.EventHandler(this.sell_cbPrice_SelectedValueChanged);
             // 
             // sell_cbType
             // 
             this.sell_cbType.BackColor = System.Drawing.Color.Snow;
             this.sell_cbType.CausesValidation = false;
             this.sell_cbType.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sell_cbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.sell_cbType.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sell_cbType.ForeColor = System.Drawing.Color.Black;
             this.sell_cbType.FormattingEnabled = true;
@@ -154,14 +155,15 @@
             this.sell_cbType.Name = "sell_cbType";
             this.sell_cbType.Size = new System.Drawing.Size(147, 22);
             this.sell_cbType.TabIndex = 0;
-            this.sell_cbType.SelectionChangeCommitted += new System.EventHandler(this.sell_cbType_SelectionChangeCommitted);
+            this.sell_cbType.SelectedValueChanged += new System.EventHandler(this.sell_cbType_SelectedValueChanged);
             // 
             // sell_cbSize
             // 
+            this.sell_cbSize.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.sell_cbSize.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.sell_cbSize.BackColor = System.Drawing.Color.Snow;
             this.sell_cbSize.CausesValidation = false;
             this.sell_cbSize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sell_cbSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.sell_cbSize.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sell_cbSize.ForeColor = System.Drawing.Color.Black;
             this.sell_cbSize.FormattingEnabled = true;
@@ -170,7 +172,7 @@
             this.sell_cbSize.Name = "sell_cbSize";
             this.sell_cbSize.Size = new System.Drawing.Size(147, 22);
             this.sell_cbSize.TabIndex = 0;
-            this.sell_cbSize.SelectedIndexChanged += new System.EventHandler(this.sell_cbSize_SelectedIndexChanged);
+            this.sell_cbSize.SelectedValueChanged += new System.EventHandler(this.sell_cbSize_SelectedValueChanged_1);
             // 
             // panel5
             // 

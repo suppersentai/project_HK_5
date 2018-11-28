@@ -7,12 +7,15 @@ using System.Threading.Tasks;
 namespace MODEL
 {
 
-    public class typeProduct
+    public class typeProduct 
     {
         string id;
         string name;
 
         public string Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
+
+      
+      
     }
 }

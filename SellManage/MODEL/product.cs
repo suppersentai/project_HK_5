@@ -13,7 +13,7 @@ namespace MODEL
         private int id;
         private string name;
         private string supplier;
-        private int size;
+        private String size;
         private string color;
         private double outPrice;
         private string type;
@@ -22,13 +22,15 @@ namespace MODEL
 
         public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
-        public string Supplies { get => supplier; set => supplier = value; }
-        public int Size { get => size; set => size = value; }
-        public string Color { get => color; set => color = value; }
+      public double OutPrice { get => outPrice; set => outPrice = value; }
         public string Type { get => type; set => type = value; }
+        public string Color { get => color; set => color = value; }
+        public string Size { get => size; set => size = value; }
+    
+        public string Supplies { get => supplier; set => supplier = value; }
         public string Note { get => note; set => note = value; }
         public string Tag { get => tag; set => tag = value; }
-        public double OutPrice { get => outPrice; set => outPrice = value; }
+      
 
 
         #endregion

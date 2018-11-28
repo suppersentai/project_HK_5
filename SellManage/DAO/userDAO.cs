@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,17 +13,11 @@ namespace DAO
         public static bool checkExistAccount(String name, String pass)
         {
 
-            MySqlConnection conn = ConnectDAO.getConnect();
-        
-            
             String sql = "select * from tbl_user where userName='"+name+"' and pass='"+pass+"'";
-            MySqlCommand com = new MySqlCommand(sql, conn);
-            MySqlDataReader dataRead = com.ExecuteReader();
-            if(dataRead.HasRows)
-     return true;
-            dataRead.Close();
-            dataRead.Dispose();
-            conn.Close();
+            DataTable da = ConnectDAO.getDataTable(sql);
+         
+            if(da.Rows.Count>0)
+                return true;
             return false;
         }
    
