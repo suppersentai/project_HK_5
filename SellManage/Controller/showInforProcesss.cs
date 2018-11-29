@@ -18,17 +18,18 @@ namespace Controller
         {
             DataTable datable = new DataTable();
             //show combobox type
-
+          
             datable = DAO.showInforDAO.takeListType();
-            //DataRow row = datable.NewRow();
-            //row["tenLoai"] = " Tất cả";
-            //row["idLoai"] = 0;
-            //datable.Rows.Add(row);
-            //DataView daView = datable.DefaultView;
-            //daView.Sort="idloai ASC";
+            DataRow row = datable.NewRow();
+            row["tenLoai"] = " Tất cả";
+            row["idLoai"] = 0; 
+            datable.Rows.Add(row);
+            DataView daView = datable.DefaultView;
+            daView.Sort="idloai ASC";
             cbType.DataSource = datable;
             cbType.DisplayMember = "tenloai";
-            cbType.ValueMember = "tenloai";
+            cbType.ValueMember = "idLoai";
+           
         }
 
         public static void showSizeOnCombox(ComboBox combox)
@@ -36,8 +37,14 @@ namespace Controller
 
             DataTable datable = new DataTable();
             //show combobox SIZE
+             datable = DAO.showInforDAO.takeListSize();   
+            DataRow row = datable.NewRow();
+           
+           row["size"] = " Tất cả";
+             datable.Rows.Add(row);
+            DataView daView = datable.DefaultView;
+            daView.Sort="size ASC";
 
-           datable = DAO.showInforDAO.takeListSize();                  
             combox.DataSource = datable;
             combox.DisplayMember = "size";
             combox.ValueMember = "size";
@@ -45,12 +52,14 @@ namespace Controller
         public static void showColorOnCombox(ComboBox combox)
         {
             DataTable datable = new DataTable();
-            //show combobox SIZE
-
-            DataRow row= datable.NewRow();
-       
-
+            //show combobox color
             datable = DAO.showInforDAO.takeListColor();
+            DataRow row = datable.NewRow();
+       
+            row["mausac"] = " Tất cả";
+            datable.Rows.Add(row);
+            DataView daView = datable.DefaultView;
+            daView.Sort = "mausac ASC";
 
             combox.DataSource = datable;
             combox.DisplayMember = "mausac";
@@ -62,20 +71,23 @@ namespace Controller
         {
             //show combobox price
         }
-        public static DataTable filterComboxValues(String type, String size, String color)
+        public static DataTable filterComboxValues(int idLoai)
         {
-            DataTable dataView = new DataTable() ;
+
             //lọc giá giá trị khi thay đổi selectedIndex
-            dataView = DAO.showInforDAO.filterCombox(type, size, color);
+          DataTable    dataView = DAO.showInforDAO.filterCombox(idLoai);
 
             return dataView;
         }
+       
+
+        #endregion
         public static DataTable getListProductProsess ()
         {
             return DAO.showInforDAO.getListProduct();
 
         }
-        #endregion
+
     }
     //public class sortListById : IComparer
     //{  so sanh doi tượng bằng giá trị propeties

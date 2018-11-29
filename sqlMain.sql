@@ -122,7 +122,7 @@ IdSP int not null ,
 TenSP nvarchar(100),
 IdNhaCungCap int ,
 IdLoaiSanPham int,
-Size int,
+Size char(4),
 MauSac nvarchar(15),
 TongSoLuongSP int,
 DoiTuongSuDung nvarchar(4),
@@ -143,26 +143,26 @@ modify column  IdSP int auto_increment;
 alter table SANPHAM
 auto_increment = 1;
 insert into SANPHAM
-values ('','Áo ba lỗ ',1,2,32,'red',100,'nữ','');
+values ('','Áo ba lỗ ',1,2,'32','red',100,'nữ','');
 insert into SANPHAM
-values ('','Áo thun ',1,2,34,'green',100,'nam','');
+values ('','Áo thun ',1,2,'34','green',100,'nam','');
 insert into SANPHAM
-values ('','Quần jean ',1,1,34,'blue',100,'nữ','');
+values ('','Quần jean ',1,1,'34','blue',100,'nữ','');
 insert into SANPHAM
-values ('','Áo lửng ',1,1,32,'white',100,'nam','');
+values ('','Áo lửng ',1,1,'32','white',100,'nam','');
 insert into SANPHAM
-values ('','bitit hunter ',1,3,26,'red',100,'nữ','');
+values ('','bitit hunter ',1,3,'26','red',100,'nữ','');
 insert into SANPHAM
-values ('','giày bóng ',1,3,41,'green',100,'nam','');
+values ('','giày bóng ',1,3,'41','green',100,'nam','');
 
 insert into SANPHAM
-values ('','dép lê',1,4,42,'blue',100,'nữ','');
+values ('','dép lê',1,4,'42','blue',100,'nữ','');
 insert into SANPHAM
-values ('','dép tông xẹp tông',1,4,45,'red',100,'nam','');
+values ('','dép tông xẹp tông',1,4,'45','red',100,'nam','');
 insert into SANPHAM
-values ('','Áo Khoác nỉ ',1,5,33,'white',100,'nữ','');
+values ('','Áo Khoác nỉ ',1,5,'33','white',100,'nữ','');
 insert into SANPHAM
-values ('','Áo khoác da ',1,5,32,'brow',100,'nam','');
+values ('','Áo khoác da ',1,5,'32','brow',100,'nam','');
 
 /*---------------------------------------------------------------*/
 
