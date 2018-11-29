@@ -41,16 +41,15 @@
             this.sell_cbSize = new System.Windows.Forms.ComboBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.sell_txtUnitPrice = new System.Windows.Forms.TextBox();
             this.button9 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.sell_txtID = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.sell_nudQuantity = new System.Windows.Forms.NumericUpDown();
+            this.sell_txtName = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -86,20 +85,28 @@
             this.toolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.sell_txtTotalPrice = new System.Windows.Forms.TextBox();
             this.button10 = new System.Windows.Forms.Button();
+            this.sell_lbWarrining = new System.Windows.Forms.Label();
+            this.sell_dgvBill = new System.Windows.Forms.DataGridView();
+            this.idsp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tensp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.giaban = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tongtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sell_nudQuantity)).BeginInit();
             this.panel7.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sell_dataGrid)).BeginInit();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sell_dgvBill)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -277,34 +284,23 @@
             this.textBox8.TabIndex = 7;
             this.textBox8.Text = "DS Sản Phẩm";
             // 
-            // listBox1
-            // 
-            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(2, 16);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(349, 143);
-            this.listBox1.TabIndex = 6;
-            // 
             // panel9
             // 
             this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel9.Controls.Add(this.textBox9);
-            this.panel9.Controls.Add(this.textBox3);
+            this.panel9.Controls.Add(this.sell_lbWarrining);
+            this.panel9.Controls.Add(this.sell_txtTotalPrice);
+            this.panel9.Controls.Add(this.sell_txtUnitPrice);
             this.panel9.Controls.Add(this.label19);
             this.panel9.Controls.Add(this.button10);
             this.panel9.Controls.Add(this.button9);
             this.panel9.Controls.Add(this.label11);
             this.panel9.Controls.Add(this.button8);
-            this.panel9.Controls.Add(this.textBox1);
+            this.panel9.Controls.Add(this.sell_txtID);
             this.panel9.Controls.Add(this.label12);
-            this.panel9.Controls.Add(this.numericUpDown1);
-            this.panel9.Controls.Add(this.textBox2);
+            this.panel9.Controls.Add(this.sell_nudQuantity);
+            this.panel9.Controls.Add(this.sell_txtName);
             this.panel9.Controls.Add(this.label14);
             this.panel9.Controls.Add(this.label13);
             this.panel9.Location = new System.Drawing.Point(6, 349);
@@ -312,12 +308,14 @@
             this.panel9.Size = new System.Drawing.Size(623, 170);
             this.panel9.TabIndex = 5;
             // 
-            // textBox3
+            // sell_txtUnitPrice
             // 
-            this.textBox3.Location = new System.Drawing.Point(72, 63);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(82, 20);
-            this.textBox3.TabIndex = 1;
+            this.sell_txtUnitPrice.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.sell_txtUnitPrice.Location = new System.Drawing.Point(72, 63);
+            this.sell_txtUnitPrice.Name = "sell_txtUnitPrice";
+            this.sell_txtUnitPrice.ReadOnly = true;
+            this.sell_txtUnitPrice.Size = new System.Drawing.Size(82, 20);
+            this.sell_txtUnitPrice.TabIndex = 1;
             // 
             // button9
             // 
@@ -346,12 +344,14 @@
             this.button8.Text = "Xuất Hóa Đơn";
             this.button8.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // sell_txtID
             // 
-            this.textBox1.Location = new System.Drawing.Point(72, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(82, 20);
-            this.textBox1.TabIndex = 1;
+            this.sell_txtID.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.sell_txtID.Location = new System.Drawing.Point(72, 19);
+            this.sell_txtID.Name = "sell_txtID";
+            this.sell_txtID.ReadOnly = true;
+            this.sell_txtID.Size = new System.Drawing.Size(82, 20);
+            this.sell_txtID.TabIndex = 1;
             // 
             // label12
             // 
@@ -362,19 +362,33 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "Tên Hàng Hóa";
             // 
-            // numericUpDown1
+            // sell_nudQuantity
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(250, 61);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(103, 20);
-            this.numericUpDown1.TabIndex = 2;
+            this.sell_nudQuantity.Location = new System.Drawing.Point(250, 61);
+            this.sell_nudQuantity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.sell_nudQuantity.Name = "sell_nudQuantity";
+            this.sell_nudQuantity.ReadOnly = true;
+            this.sell_nudQuantity.Size = new System.Drawing.Size(103, 20);
+            this.sell_nudQuantity.TabIndex = 2;
+            this.sell_nudQuantity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.sell_nudQuantity.ValueChanged += new System.EventHandler(this.sell_nudQuantity_ValueChanged);
             // 
-            // textBox2
+            // sell_txtName
             // 
-            this.textBox2.Location = new System.Drawing.Point(250, 19);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.sell_txtName.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.sell_txtName.Location = new System.Drawing.Point(250, 19);
+            this.sell_txtName.Name = "sell_txtName";
+            this.sell_txtName.ReadOnly = true;
+            this.sell_txtName.Size = new System.Drawing.Size(100, 20);
+            this.sell_txtName.TabIndex = 1;
             // 
             // label14
             // 
@@ -510,6 +524,7 @@
             this.sell_dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.sell_dataGrid.Size = new System.Drawing.Size(623, 295);
             this.sell_dataGrid.TabIndex = 1;
+            this.sell_dataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.sell_dataGrid_CellClick);
             // 
             // panel2
             // 
@@ -733,8 +748,8 @@
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel10.Controls.Add(this.sell_dgvBill);
             this.panel10.Controls.Add(this.textBox8);
-            this.panel10.Controls.Add(this.listBox1);
             this.panel10.Location = new System.Drawing.Point(1, 144);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(346, 165);
@@ -749,12 +764,14 @@
             this.label19.TabIndex = 0;
             this.label19.Text = "Thành Tiền";
             // 
-            // textBox9
+            // sell_txtTotalPrice
             // 
-            this.textBox9.Location = new System.Drawing.Point(72, 103);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(82, 20);
-            this.textBox9.TabIndex = 1;
+            this.sell_txtTotalPrice.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.sell_txtTotalPrice.Location = new System.Drawing.Point(72, 103);
+            this.sell_txtTotalPrice.Name = "sell_txtTotalPrice";
+            this.sell_txtTotalPrice.ReadOnly = true;
+            this.sell_txtTotalPrice.Size = new System.Drawing.Size(82, 20);
+            this.sell_txtTotalPrice.TabIndex = 1;
             // 
             // button10
             // 
@@ -764,6 +781,84 @@
             this.button10.TabIndex = 4;
             this.button10.Text = "Thanh Toán";
             this.button10.UseVisualStyleBackColor = true;
+            // 
+            // sell_lbWarrining
+            // 
+            this.sell_lbWarrining.AutoSize = true;
+            this.sell_lbWarrining.ForeColor = System.Drawing.Color.Red;
+            this.sell_lbWarrining.Location = new System.Drawing.Point(247, 45);
+            this.sell_lbWarrining.Name = "sell_lbWarrining";
+            this.sell_lbWarrining.Size = new System.Drawing.Size(106, 13);
+            this.sell_lbWarrining.TabIndex = 5;
+            this.sell_lbWarrining.Text = "* Cảnh báo số lượng.";
+            this.sell_lbWarrining.Visible = false;
+            // 
+            // sell_dgvBill
+            // 
+            this.sell_dgvBill.AllowUserToAddRows = false;
+            this.sell_dgvBill.AllowUserToOrderColumns = true;
+            this.sell_dgvBill.AllowUserToResizeColumns = false;
+            this.sell_dgvBill.AllowUserToResizeRows = false;
+            this.sell_dgvBill.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.sell_dgvBill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.sell_dgvBill.BackgroundColor = System.Drawing.Color.White;
+            this.sell_dgvBill.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.sell_dgvBill.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.sell_dgvBill.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.sell_dgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.sell_dgvBill.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idsp,
+            this.tensp,
+            this.giaban,
+            this.soluong,
+            this.tongtien});
+            this.sell_dgvBill.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sell_dgvBill.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.sell_dgvBill.Location = new System.Drawing.Point(0, 15);
+            this.sell_dgvBill.MultiSelect = false;
+            this.sell_dgvBill.Name = "sell_dgvBill";
+            this.sell_dgvBill.ReadOnly = true;
+            this.sell_dgvBill.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.sell_dgvBill.RowHeadersVisible = false;
+            this.sell_dgvBill.Size = new System.Drawing.Size(344, 147);
+            this.sell_dgvBill.TabIndex = 8;
+            // 
+            // idsp
+            // 
+            this.idsp.FillWeight = 76.14214F;
+            this.idsp.HeaderText = "Mã";
+            this.idsp.Name = "idsp";
+            this.idsp.ReadOnly = true;
+            // 
+            // tensp
+            // 
+            this.tensp.FillWeight = 105.9645F;
+            this.tensp.HeaderText = "Tên Sản Phẩm";
+            this.tensp.Name = "tensp";
+            this.tensp.ReadOnly = true;
+            // 
+            // giaban
+            // 
+            this.giaban.FillWeight = 105.9645F;
+            this.giaban.HeaderText = "Đơn Giá";
+            this.giaban.Name = "giaban";
+            this.giaban.ReadOnly = true;
+            // 
+            // soluong
+            // 
+            this.soluong.FillWeight = 105.9645F;
+            this.soluong.HeaderText = "Số Lượng";
+            this.soluong.Name = "soluong";
+            this.soluong.ReadOnly = true;
+            // 
+            // tongtien
+            // 
+            this.tongtien.FillWeight = 105.9645F;
+            this.tongtien.HeaderText = "Thành Tiền";
+            this.tongtien.Name = "tongtien";
+            this.tongtien.ReadOnly = true;
             // 
             // formMain
             // 
@@ -784,7 +879,7 @@
             this.panel5.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sell_nudQuantity)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -795,6 +890,7 @@
             this.menuStrip1.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sell_dgvBill)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -846,22 +942,28 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown sell_nudQuantity;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox sell_txtUnitPrice;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox sell_txtName;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox sell_txtID;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox sell_txtTotalPrice;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Label sell_lbWarrining;
+        private System.Windows.Forms.DataGridView sell_dgvBill;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idsp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tensp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn giaban;
+        private System.Windows.Forms.DataGridViewTextBoxColumn soluong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tongtien;
     }
 }
 

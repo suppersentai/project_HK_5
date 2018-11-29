@@ -87,7 +87,10 @@ namespace Controller
             return DAO.showInforDAO.getListProduct();
 
         }
+        public void bindigToObject()
+            {
 
+            }
     }
     //public class sortListById : IComparer
     //{  so sanh doi tượng bằng giá trị propeties
@@ -99,4 +102,5 @@ namespace Controller
     //    }
       
     //}
+    
 }

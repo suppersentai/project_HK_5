@@ -67,8 +67,8 @@ namespace VIEW
             sell_dataGrid.DataSource = tableProductFull;
             //đặt header
             //đặt header       
-      
-            sell_dataGrid.Columns["idSP"].HeaderText = "Mã";     
+
+            sell_dataGrid.Columns["idSP"].HeaderText = "Mã";
             sell_dataGrid.Columns["TenSP"].HeaderText = "Tên sản phẩm";
             sell_dataGrid.Columns["tenloai"].HeaderText = "Loại";
             sell_dataGrid.Columns["size"].HeaderText = "Size";
@@ -76,19 +76,29 @@ namespace VIEW
             sell_dataGrid.Columns["giaban"].HeaderText = "Giá Bán";
             sell_dataGrid.Columns["doituongsudung"].HeaderText = "Phái";
             sell_dataGrid.Columns["note"].HeaderText = "note";
-            //sell_dataGrid.Columns["type"].HeaderText = "Loại";
+            // add colum button
 
-           // //đặt kích thước width 
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            btn.HeaderText = "click";
+            btn.Name ="button";
+            btn.Text = "Add";
+            btn.Width = 80;
+            btn.UseColumnTextForButtonValue = true;
+           
+            sell_dataGrid.Columns.Add(btn);
+       
+            // //đặt kích thước width 
             sell_dataGrid.Columns["idSP"].Width = 60;
             sell_dataGrid.Columns["size"].Width = 60;
             sell_dataGrid.Columns["doituongsudung"].Width = 60;
-
+            sell_dataGrid.Columns["button"].Width = 80;
+      
             // // HIDE AN column idType in datagrid
             //   sell_dataGrid.Columns["type"].Visible = false;
             // // show infor on 4 combobox
-            
-    
-                Controller.showInforProcesss.showTypeOnCombox(sell_cbType);
+
+
+            Controller.showInforProcesss.showTypeOnCombox(sell_cbType);
             Controller.showInforProcesss.showSizeOnCombox(sell_cbSize);
             Controller.showInforProcesss.showColorOnCombox(sell_cbColor);
             //// sell_cbPrice.SelectedIndex = 0;
@@ -240,6 +250,49 @@ namespace VIEW
             sell_cbType.SelectedIndex = 0;
             sell_cbSize.SelectedIndex = 0;
             sell_cbColor.SelectedIndex = 0;
+        }
+
+        private void sell_dataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var dgbBtn = (DataGridView)sender;
+            if(dgbBtn.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                DataTable tableBill = new DataTable();
+                sell_dgvBill.Rows.Add(sell_dataGrid.SelectedRows);
+
+               // MessageBox.Show(sell_dataGrid.SelectedRows.ToString());
+            }
+            sell_txtID.DataBindings.Clear();
+            sell_txtID.DataBindings.Add("text", sell_dataGrid.DataSource, "idsp");
+            sell_txtName.DataBindings.Clear();
+            sell_txtName.DataBindings.Add("text", sell_dataGrid.DataSource, "tensp");
+            sell_txtUnitPrice.DataBindings.Clear();
+            sell_txtUnitPrice.DataBindings.Add("text", sell_dataGrid.DataSource, "giaban");
+            sell_nudQuantity.DataBindings.Clear();
+            sell_nudQuantity.Value = 1;
+
+            int unitPrice =int.Parse(sell_txtUnitPrice.Text.ToString());
+            int quantity = int.Parse(sell_nudQuantity.Value.ToString());
+            int totalPrice = unitPrice *quantity;
+            sell_txtTotalPrice.Text = totalPrice.ToString();
+            sell_lbWarrining.Visible = false;
+        }
+
+        private void sell_nudQuantity_ValueChanged(object sender, EventArgs e)
+        {
+            NumericUpDown nbr = sender as NumericUpDown;
+            if(!String.IsNullOrEmpty(sell_txtID.Text))
+            if (nbr.Value<1 || nbr.Value > 10)
+            {
+                sell_lbWarrining.Visible = true;
+            }
+            else{ 
+                int unitPrice = int.Parse(sell_txtUnitPrice.Text.ToString());
+                int quantity = int.Parse(sell_nudQuantity.Value.ToString());
+                int totalPrice = unitPrice * quantity;
+                sell_txtTotalPrice.Text = totalPrice.ToString();
+                sell_lbWarrining.Visible = false;
+            }
         }
     }
 }
