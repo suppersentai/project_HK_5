@@ -59,7 +59,8 @@ namespace VIEW
        
         private void formMain_Load(object sender, EventArgs e)
         {
-           
+            UserControl1 u = new UserControl1();
+            panel1.Controls.Add(u);
             tableProductFull = Controller.showInforProcesss.getListProductProsess();
         
          
