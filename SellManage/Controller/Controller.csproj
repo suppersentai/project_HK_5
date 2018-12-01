@@ -45,6 +45,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="fillterDataComBoxPROCESS.cs" />
     <Compile Include="loginProcess.cs" />
+    <Compile Include="payProcess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="showInforProcesss.cs" />
   </ItemGroup>

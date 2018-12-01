@@ -295,3 +295,4 @@ select * from CHITIETHOADON;
 /*------------------- KHU VỰC TEST QUERY--------------------------------------------*/
 
 update HoaDon  set hoadon.tongtien=(select soluong * giaban from chitiethoadon  where hoadon.idHD=chitiethoadon.idhoadon);
+select * from chitiethoadon ;

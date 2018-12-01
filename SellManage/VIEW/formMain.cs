@@ -12,18 +12,18 @@ using Controller;
 
 namespace VIEW
 {
-  
+
     public partial class formMain : Form
     {
         private fillterDataComBoxPROCESS fill;
-     
-      DataTable tableCurent;//List product ddang show tren data grid
+
+        DataTable tableCurent;//List product ddang show tren data grid
         bool check = false;
-        DataTable tableProductFull ;//List product chua tat ca product from database
+        DataTable tableProductFull;//List product chua tat ca product from database
         public formMain()
         {
             InitializeComponent();
-            
+
 
         }
 
@@ -34,37 +34,36 @@ namespace VIEW
 
         private void button1_Click(object sender, EventArgs e)
         {
-       
+
         }
- private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
             new LOGIN().Visible = true; this.Visible = false;
         }
 
         private void formMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult di = MessageBox.Show("Bạn Chắc Chắc Muốn thoát Không", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            if (di == DialogResult.Cancel){
-                 e.Cancel = true;
+            if (di == DialogResult.Cancel)
+            {
+                e.Cancel = true;
             }
             else
             {
-                 Environment.Exit(1);
-               // Application.Exit();
+                Environment.Exit(1);
+                // Application.Exit();
             }
-       
+
         }
 
-       
+
         private void formMain_Load(object sender, EventArgs e)
         {
-            UserControl1 u = new UserControl1();
-            panel1.Controls.Add(u);
             tableProductFull = Controller.showInforProcesss.getListProductProsess();
-        
-         
-     
+
+
+
             sell_dataGrid.DataSource = tableProductFull;
             //đặt header
             //đặt header       
@@ -80,20 +79,21 @@ namespace VIEW
             // add colum button
 
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
-            btn.HeaderText = "click";
-            btn.Name ="button";
+            Button b = new Button();
+            btn.HeaderText = "Click";
+            btn.Name = "button";
             btn.Text = "Add";
             btn.Width = 80;
             btn.UseColumnTextForButtonValue = true;
-           
+
             sell_dataGrid.Columns.Add(btn);
-       
+
             // //đặt kích thước width 
             sell_dataGrid.Columns["idSP"].Width = 60;
             sell_dataGrid.Columns["size"].Width = 60;
             sell_dataGrid.Columns["doituongsudung"].Width = 60;
             sell_dataGrid.Columns["button"].Width = 80;
-      
+
             // // HIDE AN column idType in datagrid
             //   sell_dataGrid.Columns["type"].Visible = false;
             // // show infor on 4 combobox
@@ -104,15 +104,15 @@ namespace VIEW
             Controller.showInforProcesss.showColorOnCombox(sell_cbColor);
             //// sell_cbPrice.SelectedIndex = 0;
             //
-          
+
             tableCurent = (DataTable)sell_dataGrid.DataSource;
             // sell_cbType.SelectedIndex = -1;
             check = true;
-         }
- 
-        
+        }
 
-      
+
+
+
         private void sell_cbType_SelectedValueChanged(object sender, EventArgs e)
         {
             //ShowIInfo();
@@ -123,7 +123,7 @@ namespace VIEW
                     tableProductFull = Controller.showInforProcesss.getListProductProsess();
                     if (com.SelectedIndex == 0)
                     {
-                      
+
                         sell_dataGrid.DataSource = tableProductFull;
 
                     }
@@ -145,7 +145,7 @@ namespace VIEW
         {
             ComboBox com = sender as ComboBox;
             if (check == true)
-                if (sell_cbType.SelectedIndex==0 && sell_cbColor.SelectedIndex == 0 )
+                if (sell_cbType.SelectedIndex == 0 && sell_cbColor.SelectedIndex == 0)
                 {
                     tableProductFull = Controller.showInforProcesss.getListProductProsess();
                     if (com.SelectedIndex == 0)
@@ -155,19 +155,19 @@ namespace VIEW
                     }
                     else
                     {
-                       
-                            DataTable oldDataCurent = tableCurent;
+
+                        DataTable oldDataCurent = tableCurent;
                         DataView daview = oldDataCurent.DefaultView;
                         daview.RowFilter = "size = '" + com.SelectedValue.ToString() + "'";
                         sell_dataGrid.DataSource = tableCurent;
-                       
+
                     }
                 }
                 else
                 {
                     ShowIInfo(com);
                 }
-            
+
         }
 
         private void sell_cbColor_SelectedValueChanged(object sender, EventArgs e)
@@ -198,7 +198,7 @@ namespace VIEW
         {//set datagrid = tất cả san pham
 
             string size = null, color = null;
-           
+
             int idType = Convert.ToInt32(sell_cbType.SelectedValue);
             if (sell_cbSize.SelectedIndex != 0)
             {
@@ -220,10 +220,10 @@ namespace VIEW
         {
             //ShowIInfo();
         }
-      
+
         public bool checkAllSelecedIsZero()
         {// kiểm tra xem tất cả các value  index có phải  = 0
-            if (sell_cbType.SelectedIndex == 0 && sell_cbSize.SelectedIndex == 0 && sell_cbColor.SelectedIndex == 0 )
+            if (sell_cbType.SelectedIndex == 0 && sell_cbSize.SelectedIndex == 0 && sell_cbColor.SelectedIndex == 0)
             {
                 return true;
             }
@@ -232,8 +232,8 @@ namespace VIEW
         public void filterListAndShow(int idloai)
         {
             //lọc khi thay đổi giá trị của combox
-           
-          
+
+
         }
 
         private void sell_cbType_SelectedIndexChanged(object sender, EventArgs e)
@@ -253,47 +253,52 @@ namespace VIEW
             sell_cbColor.SelectedIndex = 0;
         }
 
+        List<detailBill> listDetail = new List<detailBill>();
         private void sell_dataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var dgbBtn = (DataGridView)sender;
-            if(dgbBtn.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            var dgvBtn = (DataGridView)sender;
+          
+
+
+            if (dgvBtn.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-                DataTable tableBill = new DataTable();
-                sell_dgvBill.Rows.Add(sell_dataGrid.SelectedRows);
-
-               // MessageBox.Show(sell_dataGrid.SelectedRows.ToString());
+                Controller.showBill.showDgvBill(sell_dataGrid, sell_dgvBill);
+              
+               
             }
-            sell_txtID.DataBindings.Clear();
-            sell_txtID.DataBindings.Add("text", sell_dataGrid.DataSource, "idsp");
-            sell_txtName.DataBindings.Clear();
-            sell_txtName.DataBindings.Add("text", sell_dataGrid.DataSource, "tensp");
-            sell_txtUnitPrice.DataBindings.Clear();
-            sell_txtUnitPrice.DataBindings.Add("text", sell_dataGrid.DataSource, "giaban");
-            sell_nudQuantity.DataBindings.Clear();
-            sell_nudQuantity.Value = 1;
 
-            int unitPrice =int.Parse(sell_txtUnitPrice.Text.ToString());
-            int quantity = int.Parse(sell_nudQuantity.Value.ToString());
-            int totalPrice = unitPrice *quantity;
-            sell_txtTotalPrice.Text = totalPrice.ToString();
-            sell_lbWarrining.Visible = false;
         }
 
         private void sell_nudQuantity_ValueChanged(object sender, EventArgs e)
         {
             NumericUpDown nbr = sender as NumericUpDown;
-            if(!String.IsNullOrEmpty(sell_txtID.Text))
-            if (nbr.Value<1 || nbr.Value > 10)
-            {
-                sell_lbWarrining.Visible = true;
-            }
-            else{ 
-                int unitPrice = int.Parse(sell_txtUnitPrice.Text.ToString());
-                int quantity = int.Parse(sell_nudQuantity.Value.ToString());
-                int totalPrice = unitPrice * quantity;
-                sell_txtTotalPrice.Text = totalPrice.ToString();
-                sell_lbWarrining.Visible = false;
-            }
+            if (!String.IsNullOrEmpty(sell_txtID.Text))
+                if (nbr.Value < 1 || nbr.Value > 10)
+                {
+                    sell_lbWarrining.Visible = true;
+                }
+                else
+                {
+                    int unitPrice = int.Parse(sell_txtUnitPrice.Text.ToString());
+                    int quantity = int.Parse(sell_nudQuantity.Value.ToString());
+                    int totalPrice = unitPrice * quantity;
+                    sell_txtTotalPrice.Text = totalPrice.ToString();
+                    sell_lbWarrining.Visible = false;
+                }
+        }
+
+        private void sell_dgvBill_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataTable tableBill = sell_dgvBill.DataSource as DataTable;
+            sell_txtID.DataBindings.Clear();
+            //   sell_txtID.DataBindings.Add("text", tableBill, "idsp");
+            MessageBox.Show(tableBill.Rows.Count.ToString());
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Controller.payProcess.createBill(customer custom, DataGridView sell_bill);
         }
     }
 }
+
