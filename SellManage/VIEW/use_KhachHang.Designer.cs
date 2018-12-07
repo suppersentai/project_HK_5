@@ -1,6 +1,6 @@
 ﻿namespace VIEW
 {
-    partial class UserControl1
+    partial class use_KhachHang
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,31 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.sell_dgvCustomer = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.sell_dgvCustomer)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // sell_dgvCustomer
             // 
-            this.button1.Location = new System.Drawing.Point(62, 55);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.sell_dgvCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.sell_dgvCustomer.Location = new System.Drawing.Point(3, 3);
+            this.sell_dgvCustomer.Name = "sell_dgvCustomer";
+            this.sell_dgvCustomer.Size = new System.Drawing.Size(634, 519);
+            this.sell_dgvCustomer.TabIndex = 0;
             // 
-            // UserControl1
+            // use_KhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
-            this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(221, 118);
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.DarkRed;
+            this.Controls.Add(this.sell_dgvCustomer);
+            this.Name = "use_KhachHang";
+            this.Size = new System.Drawing.Size(984, 525);
+            ((System.ComponentModel.ISupportInitialize)(this.sell_dgvCustomer)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView sell_dgvCustomer;
     }
 }

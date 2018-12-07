@@ -51,6 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectDAO.cs" />
+    <Compile Include="getDataDAO.cs" />
+    <Compile Include="payDAO.cs" />
     <Compile Include="showInforDAO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

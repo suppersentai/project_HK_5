@@ -57,7 +57,7 @@ namespace Controller
                 }
                 else
                 {
-                    MessageBox.Show("ko cia nao 2");
+                    sql = "select idSp ,tenSp,tenLoai,size,mausac,giaban,doituongsudung,note from SANPHAM, LOAISANPHAM ,HoaDonNhapHang,nhacungcap where SANPHAM.idLOAISANPHAM = LOAISANPHAM.idLoai and sanpham.idSP=hoadonnhaphang.IdSanPham and NHACUNGCAP.IdNCC= sanpham.IdNhaCungCap and idloaisanpham='" + idType + "' ; ";
                 }
             }
       

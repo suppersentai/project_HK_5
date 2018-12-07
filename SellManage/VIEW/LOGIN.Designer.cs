@@ -109,7 +109,7 @@
             this.label2.ForeColor = System.Drawing.Color.Red;
             this.label2.Location = new System.Drawing.Point(44, 60);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 17);
+            this.label2.Size = new System.Drawing.Size(65, 15);
             this.label2.TabIndex = 0;
             this.label2.Text = "Password";
             // 
@@ -121,7 +121,7 @@
             this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(44, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 17);
+            this.label1.Size = new System.Drawing.Size(74, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "User Name";
             // 
@@ -131,7 +131,7 @@
             this.AllowDrop = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(343, 180);
+            this.ClientSize = new System.Drawing.Size(343, 181);
             this.Controls.Add(panel1);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.HelpButton = true;

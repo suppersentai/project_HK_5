@@ -6,6 +6,8 @@ drop database quanlibanhang;
 create database quanlibanhang;
 use quanlibanhang;
 
+
+
 /* ---- table Loai san pham--------------------------------*/
 create table LOAISANPHAM(
 IdLoai int not null ,
@@ -64,7 +66,17 @@ VALUES('','Trương Tiểu TOàn','0333236635','1996/05/14','long bình - biên 
 
 
 /*---------------------------------------------------------------*/
+/* ---- table ACOUNT --------------------------------*/
+create table ACOUNT(
+idNV int,
+userName char(40) unique,
+pass char(30),#
+checkAdmin tinyint 
+);
+alter table ACOUNT 
+add constraint fk_acount foreign key (idnv)references NHANVIEN(idnv);
 
+insert into acount values(1,'chungtoan','gaotoan',1);
 /* ---- table Khach Hang--------------------------------*/
 create table KHACHHANG(
 IdKH int not null ,
@@ -99,6 +111,7 @@ DiaChiNCC nvarchar(200),
 PhoneNCC char(19) unique
 
 );
+      
 
 alter table NHACUNGCAP
 add constraint fk_NhaCungCap primary key (IdNCC);
@@ -210,8 +223,8 @@ alter table CHITIETHOADON
 add constraint fk_IdHoaDon foreign key (IdHoaDon) references HOADON(IdHD);
 alter table CHITIETHOADON
 add constraint fk_IdSanPham foreign key (IDSanPham) references SANPHAM(IdSP);
-
-
+use quanlibanhang;
+select Max(idhd) from hoadon;
 /*---------------------------------------------------------------*/
 
 /* ---- table Nhap Nhap Hang--------------------------------*/
@@ -278,7 +291,7 @@ values('',1,2,'2018/8/8',40000);
 INSERT INTO HOADON 
 values('',1,2,'2018/8/8','');
 
-
+use quanlibanhang;
 
 INSERT INTO CHITIETHOADON
 VALUES(1,1,20000,2);
@@ -290,9 +303,14 @@ INSERT INTO CHITIETHOADON
 VALUES(3,4,40000,1);
 INSERT INTO CHITIETHOADON
 VALUES(5,4,'10000',2);
-select * from CHITIETHOADON;
-
+use quanlibanhang;
+select * from HOADON;
+select * from CHITIETHoadon;
+select * from khachhang;
 /*------------------- KHU VỰC TEST QUERY--------------------------------------------*/
-
-update HoaDon  set hoadon.tongtien=(select soluong * giaban from chitiethoadon  where hoadon.idHD=chitiethoadon.idhoadon);
-select * from chitiethoadon ;
+insert into khachhang values('','truong taon','bien',,'" + cus.Phone + "','" + cus.Gender + "');
+         
+insert into HOADON values('34',1,2,'2018/4/3 ','100000');
+        
+insert into HOADON values('','" + bil.IdStaff + "','" + CONST.customer.Id + "','" + bil.DayOfSell + "','" + bil.TotalMoney + "');
+      

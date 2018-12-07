@@ -9,12 +9,16 @@ namespace MODEL
 {
    public  class customer
     {
-        string id;
+        int id;
         string name;
+        string address;
         string phone;
+        string gender;
 
-        public string Id { get => id; set => id = value; }
+        public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
         public string Phone { get => phone; set => phone = value; }
+        public string Address { get => address; set => address = value; }
+        public string Gender { get => gender; set => gender = value; }
     }
 }

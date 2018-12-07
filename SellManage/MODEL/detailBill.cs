@@ -14,11 +14,8 @@ namespace MODEL
         int quantity;
         int price;
         bill bills;
-        public detailBill()
-        {
-            this.idBill = bills.IdBill;
-
-        }
+     
+       
      
         public int IdBill { get => idBill; set => idBill = value; }
         public int IdProduct { get => idProduct; set => idProduct = value; }

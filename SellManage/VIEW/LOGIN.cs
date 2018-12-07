@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controller;
+using MODEL;
 namespace VIEW
+
 {
     public partial class LOGIN : Form
     {
@@ -27,7 +29,9 @@ namespace VIEW
                 {
                        new formMain().Visible=true;
                      this.Visible = false;
+                    staff st = Controller.loginProcess.getAccount(log_txtUser.Text, log_txtPas.Text);
 
+                    CONST.currenAcount = st;
                 }
                 else
                 {

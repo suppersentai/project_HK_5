@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace VIEW
 {
-    public partial class UserControl1 : UserControl
+    public partial class use_KhachHang : UserControl
     {
-        public UserControl1()
+        public use_KhachHang()
         {
             InitializeComponent();
         }
