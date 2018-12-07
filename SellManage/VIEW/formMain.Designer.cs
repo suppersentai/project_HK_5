@@ -55,6 +55,7 @@
             this.sell_cbType = new System.Windows.Forms.ComboBox();
             this.sell_cbSize = new System.Windows.Forms.ComboBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.sell_dgvBill = new System.Windows.Forms.DataGridView();
             this.idsp = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,7 +95,6 @@
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel11 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -438,6 +438,13 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(349, 522);
             this.panel5.TabIndex = 1;
+            // 
+            // panel11
+            // 
+            this.panel11.Location = new System.Drawing.Point(26, 336);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(258, 149);
+            this.panel11.TabIndex = 5;
             // 
             // panel10
             // 
@@ -861,13 +868,6 @@
             this.toolToolStripMenuItem.Name = "toolToolStripMenuItem";
             this.toolToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
             this.toolToolStripMenuItem.Text = "tool";
-            // 
-            // panel11
-            // 
-            this.panel11.Location = new System.Drawing.Point(26, 336);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(258, 149);
-            this.panel11.TabIndex = 5;
             // 
             // formMain
             // 

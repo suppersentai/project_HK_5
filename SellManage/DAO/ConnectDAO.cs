@@ -10,7 +10,7 @@ namespace DAO
 {
     public   class ConnectDAO
     {
-    static    String stringConnect = "Data Source = localhost;Database = quanlibanhang; port = 3306;User Id=root;password=";
+        static    String stringConnect = "server=localhost;user id=root;password=dong19599;persistsecurityinfo=True;database=quanlibanhang";
 
         //public static  MySqlConnection getConnect()
         //{
